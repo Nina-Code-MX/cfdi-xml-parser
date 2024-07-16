@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "CFDi XML Parser",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.py": "python"
+		},
+		"editor.wordWrap": "on"
+	}
+}
