@@ -45,7 +45,7 @@ c_TipoDeduccionOtros = {
 }
 
 def parse_xml_to_csv(input_folder, output_csv_filename="report.csv"):
-    header = ["Fecha", "Emisor Rfc", "Emisor Nombre", "Receptor Rfc", "Receptor Nombre", "Moneda", "TipoCambio", "SubTotal", "Descuento", "Traslado: I.V.A.", "Traslado: I.E.P.S", "Retención: I.S.R.", "Retención: I.V.A.", "Retención: I.E.P.S", "Deducción: I.S.R.", "Deducción: I.M.S.S.", "Deducción: Otros", "Total", "Ingreso/Egreso", "Tipo de Comprobante", "Folio SAT"]
+    header = ["Fecha", "Emisor Rfc", "Emisor Nombre", "Receptor Rfc", "Receptor Nombre", "Moneda", "TipoCambio", "SubTotal", "Descuento", "Traslado: I.V.A.", "Traslado: I.E.P.S", "Retención: I.S.R.", "Retención: I.V.A.", "Retención: I.E.P.S", "Deducción: I.S.R.", "Deducción: I.M.S.S.", "Deducción: Otros", "Total", "Ingreso/Egreso", "Tipo de Comprobante", "Serie", "Folio", "Folio SAT"]
 
     with open(output_csv_filename, "w", newline="", encoding="utf-8") as csv_file:
         writer = csv.writer(csv_file)
@@ -160,6 +160,8 @@ def parse_xml_to_csv(input_folder, output_csv_filename="report.csv"):
                     total,
                     total * tipoCambio,
                     comprobante.get("TipoDeComprobante"),
+                    comprobante.get("Serie", ""),
+                    comprobante.get("Folio", ""),
                     folio_sat
                 ]
 
